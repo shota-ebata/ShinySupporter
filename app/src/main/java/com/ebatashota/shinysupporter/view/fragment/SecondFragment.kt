@@ -1,13 +1,14 @@
 package com.ebatashota.shinysupporter.view.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ebatashota.shinysupporter.R
 import com.ebatashota.shinysupporter.databinding.FragmentSecondBinding
+import com.ebatashota.shinysupporter.view.other.bindViewLifecycle
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -16,20 +17,16 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class SecondFragment : Fragment() {
 
-    private var _binding: FragmentSecondBinding? = null
-
     // This property is only valid between onCreateView and
     // onDestroyView.
-    private val binding get() = _binding!!
+    private var binding: FragmentSecondBinding by bindViewLifecycle()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-
-        _binding = FragmentSecondBinding.inflate(inflater, container, false)
+    ): View {
+        binding = FragmentSecondBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,10 +35,5 @@ class SecondFragment : Fragment() {
         binding.buttonSecond.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }
