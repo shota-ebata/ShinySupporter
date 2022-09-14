@@ -8,10 +8,12 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.ebatashota.shinysupporter.R
 import com.ebatashota.shinysupporter.databinding.FragmentFirstBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
+@AndroidEntryPoint
 class FirstFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
