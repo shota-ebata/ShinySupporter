@@ -1,4 +1,4 @@
-package com.ebatashota.shinysupporter
+package com.ebi_tarou.shinysupporter
 
 import org.junit.Test
 

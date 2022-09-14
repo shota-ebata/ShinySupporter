@@ -1,4 +1,4 @@
-package com.ebatashota.shinysupporter.viewmodel
+package com.ebi_tarou.shinysupporter.viewmodel
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

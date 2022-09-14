@@ -1,4 +1,4 @@
-package com.ebatashota.shinysupporter
+package com.ebi_tarou.shinysupporter
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.ebatashota.shinysupporter", appContext.packageName)
+        assertEquals("com.ebi_tarou.shinysupporter", appContext.packageName)
     }
 }

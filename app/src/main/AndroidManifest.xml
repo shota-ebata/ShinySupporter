@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.ebatashota.shinysupporter">
+    package="com.ebi_tarou.shinysupporter">
 
     <application
-        android:name=".App"
+        android:name="com.ebi_tarou.shinysupporter.App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,7 +15,7 @@
         android:theme="@style/Theme.ShinySupporter"
         tools:targetApi="31">
         <activity
-            android:name=".view.activity.MainActivity"
+            android:name="com.ebi_tarou.shinysupporter.view.activity.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.ShinySupporter.NoActionBar">

@@ -1,4 +1,4 @@
-package com.ebatashota.shinysupporter.view.activity
+package com.ebi_tarou.shinysupporter.view.activity
 
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
@@ -10,9 +10,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
-import com.ebatashota.shinysupporter.R
-import com.ebatashota.shinysupporter.databinding.ActivityMainBinding
-import com.ebatashota.shinysupporter.viewmodel.MainViewModel
+import com.ebi_tarou.shinysupporter.R
+import com.ebi_tarou.shinysupporter.databinding.ActivityMainBinding
+import com.ebi_tarou.shinysupporter.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 

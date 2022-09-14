@@ -1,4 +1,4 @@
-package com.ebatashota.shinysupporter.view.other
+package com.ebi_tarou.shinysupporter.view.other
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
