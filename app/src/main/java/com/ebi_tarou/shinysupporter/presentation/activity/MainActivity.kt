@@ -12,7 +12,7 @@ import android.view.MenuItem
 import androidx.activity.viewModels
 import com.ebi_tarou.shinysupporter.R
 import com.ebi_tarou.shinysupporter.databinding.ActivityMainBinding
-import com.ebi_tarou.shinysupporter.viewmodel.MainViewModel
+import com.ebi_tarou.shinysupporter.presentation.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 

@@ -1,4 +1,4 @@
-package com.ebi_tarou.shinysupporter.viewmodel
+package com.ebi_tarou.shinysupporter.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
