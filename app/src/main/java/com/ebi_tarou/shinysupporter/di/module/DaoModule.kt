@@ -3,6 +3,7 @@ package com.ebi_tarou.shinysupporter.di.module
 import com.ebi_tarou.shinysupporter.infra.db.AppDatabase
 import com.ebi_tarou.shinysupporter.infra.db.dao.NouhauMasterDao
 import com.ebi_tarou.shinysupporter.infra.db.dao.NouhauNoteDao
+import com.ebi_tarou.shinysupporter.infra.db.dao.ObtainedNouhauDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,5 +21,10 @@ class DaoModule {
     @Provides
     fun provideNouhauNoteDao(appDatabase: AppDatabase): NouhauNoteDao {
         return appDatabase.nouhauNoteDao()
+    }
+
+    @Provides
+    fun provideObtainedNouhauDao(appDatabase: AppDatabase): ObtainedNouhauDao {
+        return appDatabase.obtainedNouhauDao()
     }
 }
