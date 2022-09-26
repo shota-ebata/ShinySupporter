@@ -14,5 +14,5 @@ data class ObtainedNouhauEntity(
     @ColumnInfo(name = "nouhau_master_id")
     val nouhauMasterId: Int,
     @ColumnInfo(name = "level")
-    val level: Int
+    val level: Int?
 )
