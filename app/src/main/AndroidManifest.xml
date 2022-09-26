@@ -15,7 +15,7 @@
         android:theme="@style/Theme.ShinySupporter"
         tools:targetApi="31">
         <activity
-            android:name="com.ebi_tarou.shinysupporter.view.activity.MainActivity"
+            android:name="com.ebi_tarou.shinysupporter.presentation.activity.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.ShinySupporter.NoActionBar">

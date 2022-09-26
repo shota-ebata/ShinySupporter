@@ -1,4 +1,4 @@
-package com.ebi_tarou.shinysupporter.view.fragment
+package com.ebi_tarou.shinysupporter.presentation.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ebi_tarou.shinysupporter.R
 import com.ebi_tarou.shinysupporter.databinding.FragmentFirstBinding
-import com.ebi_tarou.shinysupporter.view.other.bindViewLifecycle
+import com.ebi_tarou.shinysupporter.presentation.other.bindViewLifecycle
 import dagger.hilt.android.AndroidEntryPoint
 
 /**

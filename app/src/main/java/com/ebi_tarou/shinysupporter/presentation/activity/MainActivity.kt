@@ -1,4 +1,4 @@
-package com.ebi_tarou.shinysupporter.view.activity
+package com.ebi_tarou.shinysupporter.presentation.activity
 
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar

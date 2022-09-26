@@ -1,4 +1,4 @@
-package com.ebi_tarou.shinysupporter.view.fragment
+package com.ebi_tarou.shinysupporter.presentation.fragment
 
 import androidx.fragment.app.Fragment
 import dagger.hilt.android.AndroidEntryPoint
