@@ -12,6 +12,7 @@ buildscript {
         espresso_core_version = "3.4.0"
 
         hilt_version = "2.43.2"
+        room_version = "2.4.3"
     }
 
     repositories {

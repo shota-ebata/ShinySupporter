@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         binding.fab.setOnClickListener { view ->
             Snackbar.make(view, "${viewModel.getText()}", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
+            viewModel.hoge()
         }
     }
 
