@@ -3,6 +3,7 @@ package com.ebi_tarou.shinysupporter.infra.db.entity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.time.LocalDateTime
 
 @Entity(tableName = "obtained_nouhau_table")
 data class ObtainedNouhauEntity(
@@ -14,5 +15,7 @@ data class ObtainedNouhauEntity(
     @ColumnInfo(name = "nouhau_master_id")
     val nouhauMasterId: Int,
     @ColumnInfo(name = "level")
-    val level: Int?
+    val level: Int?,
+    @ColumnInfo(name = "create_at")
+    val createAt: LocalDateTime
 )
