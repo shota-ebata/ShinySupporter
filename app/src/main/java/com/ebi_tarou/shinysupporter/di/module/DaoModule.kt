@@ -8,22 +8,26 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 class DaoModule {
 
     @Provides
+    @Singleton
     fun provideNouhauMasterDao(appDatabase: AppDatabase): NouhauMasterDao {
         return appDatabase.nouhauMasterDao()
     }
 
     @Provides
+    @Singleton
     fun provideNouhauNoteDao(appDatabase: AppDatabase): NouhauNoteDao {
         return appDatabase.nouhauNoteDao()
     }
 
     @Provides
+    @Singleton
     fun provideObtainedNouhauDao(appDatabase: AppDatabase): ObtainedNouhauDao {
         return appDatabase.obtainedNouhauDao()
     }

@@ -13,8 +13,8 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class AppModule {
 
-    @Singleton
     @Provides
+    @Singleton
     fun provideAppDatabase(app: Application): AppDatabase {
         return Room.databaseBuilder(
             app.applicationContext,
