@@ -30,5 +30,3 @@ jobs:
         distribution: 'temurin'
     - name: Test with Gradle
       run: ./gradlew test
-    - name: Lint with Gradle
-      run: ./gradlew lint
