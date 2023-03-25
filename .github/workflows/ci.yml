@@ -47,14 +47,14 @@ jobs:
           PACKAGES: danger:9.2.0 danger-checkstyle_format:0.1.1 danger-android_lint:0.0.11 danger-junit:1.0.2
         id: gem-info
         run: |
-          echo "::set-output name=dir::$(gem environment gemdir)" # キャッシュするgemのディレクトリ
-          echo "::set-output name=packages::$PACKAGES" # install 用の文字列
-          echo "::set-output name=key::$(echo $PACKAGES | tr ' ' '-')" # キャッシュのキー文字列
+          echo "dir=$(gem environment gemdir)" >> $GITHUB_ENV # キャッシュするgemのディレクトリ
+          echo "packages=$PACKAGES" >> $GITHUB_ENV # install 用の文字列
+          echo "key=$(echo $PACKAGES | tr ' ' '-')" >> $GITHUB_ENV # キャッシュのキー文字列
       - name: Restroe gem cache # gem のキャッシュをRestore
         uses: actions/cache@v3
         with:
-          path: ${{ steps.gem-info.outputs.dir }}
-          key: ${{ runner.os }}-gem-${{ steps.gem-info.outputs.key }}
+          path: ${{ env.dir }}
+          key: ${{ runner.os }}-gem-${{ env.key }}
 #      - name: ktlint
 #          run: ./gradlew $GRADLE_KTLINT_TASK
       - name: Run Android Lint
@@ -67,7 +67,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # 標準で利用できるトークンを利用
           JOB_STATUS: ${{ job.status }} # jobのステータスを Danger へ受け渡す
         run: |
-          gem install ${{ steps.gem-info.outputs.packages }}
+          gem install ${{ env.packages }}
           danger --dangerfile='.github/workflows/check-pull-request.danger' --remove-previous-comments --fail-on-errors=true
 #  build:
 #
