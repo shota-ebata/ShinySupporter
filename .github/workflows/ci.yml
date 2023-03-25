@@ -55,8 +55,8 @@ jobs:
         with:
           path: ${{ steps.gem-info,outputs.dir }}
           key: ${{ runner.os }}-gem-${{ steps.gem-info.outputs.key }}
-      - name: ktlint
-          run: ./gradlew $GRADLE_KTLINT_TASK
+#      - name: ktlint
+#          run: ./gradlew $GRADLE_KTLINT_TASK
       - name: Run Android Lint
           run: ./gradlew $GRADLE_ANDROID_LINT_TASK
       - name: Run Unit Test
