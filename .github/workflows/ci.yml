@@ -62,7 +62,7 @@ jobs:
       - name: Run Unit Test
         run: ./gradlew $GRADLE_UNIT_TEST_TASK
       - name: Set up and run Danger
-        if: canceled() != true #中断されない限り、エラーでも実行
+        if: cancelled() != true #中断されない限り、エラーでも実行
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # 標準で利用できるトークンを利用
           JOB_STATUS: ${{ job.status }} # jobのステータスを Danger へ受け渡す
