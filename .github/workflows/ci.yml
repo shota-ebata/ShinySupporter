@@ -58,7 +58,7 @@ jobs:
 #      - name: ktlint
 #          run: ./gradlew $GRADLE_KTLINT_TASK
       - name: Run Android Lint
-          run: ./gradlew $GRADLE_ANDROID_LINT_TASK
+          run: ./gradlew lintDebug
       - name: Run Unit Test
           run: ./gradlew $GRADLE_UNIT_TEST_TASK
       - name: Set up and run Danger
