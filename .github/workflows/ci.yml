@@ -58,9 +58,9 @@ jobs:
 #      - name: ktlint
 #          run: ./gradlew $GRADLE_KTLINT_TASK
       - name: Run Android Lint
-          run: ./gradlew lintDebug
+        run: ./gradlew $GRADLE_ANDROID_LINT_TASK
       - name: Run Unit Test
-          run: ./gradlew $GRADLE_UNIT_TEST_TASK
+        run: ./gradlew $GRADLE_UNIT_TEST_TASK
       - name: Set up and run Danger
         if: canceled() != true #中断されない限り、エラーでも実行
         env:
