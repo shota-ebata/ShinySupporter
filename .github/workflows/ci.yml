@@ -39,7 +39,7 @@ jobs:
               ~/.gradle/wrapper
             key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle', '**/*.gradle.kts') }}
       - name: Set up Ruby # gem を利用するので Ruby をセットアップ
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.0'
       - name: Get gem info
