@@ -9,8 +9,7 @@ name: Check pull request
 
 on: pull_request
 
-permissions:
-  contents: read
+permissions: write-all
 
 env:
   GRADLE_KTLINT_TASK: 'ktlint'
