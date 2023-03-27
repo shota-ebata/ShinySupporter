@@ -11,4 +11,11 @@ warn("Big PR") if git.lines_of_code > 500
 # Don't let testing shortcuts get into master by accident
 fail("fdescribe left in tests") if `grep -r fdescribe specs/ `.length > 1
 fail("fit left in tests") if `grep -r fit specs/ `.length > 1
-warn("テストのwarnだよー")
+
+# Android Lintの結果ファイルの解析とコメント
+Dir.glob("**/build/reports/lint-results*.html").each { |report|
+    android_lint.skip_gradle_task = true # すでにある結果ファイルを利用する
+    android_lint.report_file = report.to_s
+    android_lint.filtering = false # エラーは追加・変更したファイルでなくてもコメント
+    android_lint.lint(inline_mode: true) # コードにインラインでコメントする
+}
