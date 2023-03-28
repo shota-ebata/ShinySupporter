@@ -17,6 +17,9 @@ Dir.glob("**/build/reports/lint-results*.html").each { |report|
     android_lint.lint(inline_mode: true) # コードにインラインでコメントする
 }
 
+# 最終結果でレポートするワーニング数は Android Lint と ktlint のみの合計としたいのでここで変数に保存
+lint_warning_count = status_report[:warnings].count
+
 # Sometimes it's a README fix, or something like that - which isn't relevant for
 # including in a project's CHANGELOG for example
 declared_trivial = github.pr_title.include? "#trivial"
@@ -39,3 +42,12 @@ return unless status_report[:errors].empty?
 
 # GitHub Actions のワークフローのどこかでエラーがあった場合はその旨をコメントして終了
 return markdown ':heavy_exclamation_mark:Pull request check failed.' if job_status != 'success'
+
+# 成功時のコメント(もし不要な場合は省いてもいいと思います)
+comment = ':heavy_check_mark:Pull request check passed.'
+if lint_warning_count == 0
+  markdown comment
+else
+  # ktlint と Android Lint のワーニング数の合計をレポート
+  markdown comment + " (But **#{lint_warning_count}** warnings reported by Android Lint and ktlint.)"
+end
