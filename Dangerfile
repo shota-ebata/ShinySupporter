@@ -46,4 +46,4 @@ return markdown ':heavy_exclamation_mark:Pull request check failed.' if job_stat
 # 成功時のコメント(もし不要な場合は省いてもいいと思います)
 if lint_warning_count != 0
   # ktlint と Android Lint のワーニング数の合計をレポート
-    markdown ":heavy_check_mark:Pull request check passed. (But **#{lint_warning_count}** warnings reported by Android Lint and ktlint.)"
+  markdown ":heavy_check_mark:Pull request check passed. (But **#{lint_warning_count}** warnings reported by Android Lint and ktlint.)"
