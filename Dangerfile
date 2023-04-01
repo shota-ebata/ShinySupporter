@@ -10,7 +10,7 @@ github.dismiss_out_of_range_messages({
 })
 
 # Android Lintの結果ファイルの解析とコメント
-Dir.glob("./build/reports/lint-results*.html").each { |report|
+Dir.glob("home/runner/work/ShinySupporter/ShinySupporter/app/build/reports/lint-results-debug.html").each { |report|
     android_lint.skip_gradle_task = true # すでにある結果ファイルを利用する
     android_lint.report_file = report.to_s
     android_lint.filtering = false # エラーは追加・変更したファイルでなくてもコメント
