@@ -5,7 +5,7 @@ job_status = ENV['JOB_STATUS']
 github.dismiss_out_of_range_messages({
   error: false, # エラーは追加・変更していないコードでもコメント
   warning: false,
-  message: true,
+  message: false,
   markdown: true
 })
 
