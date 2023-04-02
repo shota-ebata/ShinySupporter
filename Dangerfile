@@ -20,7 +20,7 @@ end
 # 最終結果でレポートするワーニング数は Android Lint と ktlint のみの合計としたいのでここで変数に保存
 lint_warning_count = status_report[:warnings].count
 
-warn("lint_warning_count = "+lint_warning_count)
+warn("lint_warning_count = #{lint_warning_count}")
 
 # Sometimes it's a README fix, or something like that - which isn't relevant for
 # including in a project's CHANGELOG for example
