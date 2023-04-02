@@ -10,7 +10,7 @@ github.dismiss_out_of_range_messages({
 })
 
 # Android Lintの結果ファイルの解析とコメント
-Dir.glob("**/app/build/reports/lint-results*.html").each do |report|
+Dir.glob("app/build/reports/lint-results-debug.html").each do |report|
     android_lint.skip_gradle_task = true # すでにある結果ファイルを利用する
     android_lint.report_file = report.to_s
     markdown "report.to_s = #{report.to_s}"
