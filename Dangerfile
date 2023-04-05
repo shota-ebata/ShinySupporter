@@ -12,8 +12,8 @@ github.dismiss_out_of_range_messages({
 # Android Lintの結果ファイルの解析とコメント
 android_lint.skip_gradle_task = true # すでにある結果ファイルを利用する
 android_lint.filtering = false # エラーは追加・変更したファイルでなくてもコメント
-Dir.glob("**/build/reports/lint-results*.html").each do |report|
-    android_lint.report_file = report
+Dir["app/build/reports/lint-results-debug.html"].each do |file|
+    android_lint.report_file = file
     android_lint.lint(inline_mode: true) # コードにインラインでコメントする
 end
 
