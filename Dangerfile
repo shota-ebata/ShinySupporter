@@ -10,7 +10,7 @@ job_status = ENV['JOB_STATUS']
 # })
 
 # Android Lintの結果ファイルの解析とコメント
-android_lint.skip_gradle_task = true # すでにある結果ファイルを利用する
+android_lint.skip_gradle_task = false # すでにある結果ファイルを利用する: true
 android_lint.filtering = false # エラーは追加・変更したファイルでなくてもコメント
 Dir["app/build/reports/lint-results-debug.html"].each do |file|
     android_lint.report_file = file
