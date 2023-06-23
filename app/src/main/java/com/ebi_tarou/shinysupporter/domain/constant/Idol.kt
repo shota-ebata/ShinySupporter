@@ -39,5 +39,9 @@ enum class Idol {
 
     // シーズ
     NICHIKA,
-    MIKOTO;
+    MIKOTO,
+
+    // 斑鳩ルカ
+    RUKA,
+    ;
 }
