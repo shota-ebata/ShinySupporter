@@ -1,11 +1,11 @@
 package com.ebi_tarou.shinysupporter.di.module
 
-import com.ebi_tarou.shinysupporter.infra.repository.NouhauMasterRepository
-import com.ebi_tarou.shinysupporter.infra.repository.NouhauNoteRepository
-import com.ebi_tarou.shinysupporter.infra.repository.ObtainedNouhauRepository
-import com.ebi_tarou.shinysupporter.infra.repository.impl.NouhauMasterRepositoryImpl
-import com.ebi_tarou.shinysupporter.infra.repository.impl.NouhauNoteRepositoryImpl
-import com.ebi_tarou.shinysupporter.infra.repository.impl.ObtainedNouhauRepositoryImpl
+import com.ebi_tarou.shinysupporter.domain.repository.NouhauMasterRepository
+import com.ebi_tarou.shinysupporter.domain.repository.NouhauNoteRepository
+import com.ebi_tarou.shinysupporter.domain.repository.AcquiredNouhauRepository
+import com.ebi_tarou.shinysupporter.infra.repository.NouhauMasterRepositoryImpl
+import com.ebi_tarou.shinysupporter.infra.repository.NouhauNoteRepositoryImpl
+import com.ebi_tarou.shinysupporter.infra.repository.AcquiredNouhauRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -26,5 +26,5 @@ abstract class RepositoryModule {
 
     @Binds
     @Singleton
-    abstract fun bindObtainedNouhauRepository(obtainedNouhauRepositoryImpl: ObtainedNouhauRepositoryImpl): ObtainedNouhauRepository
+    abstract fun bindObtainedNouhauRepository(obtainedNouhauRepositoryImpl: AcquiredNouhauRepositoryImpl): AcquiredNouhauRepository
 }

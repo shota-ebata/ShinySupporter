@@ -6,6 +6,6 @@ import java.time.LocalDateTime
 data class NouhauNote(
     val id: Int,
     val idol: Idol,
-    val obtainedNouhauList: List<ObtainedNouhau>,
-    val dropDateTime: LocalDateTime
+    val acquiredNouhauList: List<AcquiredNouhau>,
+    val acquiredDateTime: LocalDateTime
 )
