@@ -26,7 +26,6 @@ fun NouhauListItem(
 ) {
     Card(
         modifier = modifier
-            .padding(horizontal = 8.dp, vertical = 4.dp)
             .combinedClickable(
                 onClick = {
                     onClickCard(nouhau.id)
