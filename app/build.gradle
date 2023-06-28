@@ -22,9 +22,9 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments += [
-                        "room.schemaLocation":"$projectDir/schemas".toString(),
-                        "room.incremental":"true",
-                        "room.expandProjection":"true"]
+                        "room.schemaLocation"  : "$projectDir/schemas".toString(),
+                        "room.incremental"     : "true",
+                        "room.expandProjection": "true"]
             }
         }
     }
@@ -85,22 +85,21 @@ dependencies {
     def composeBom = platform('androidx.compose:compose-bom:2022.11.00')
     implementation(composeBom)
     androidTestImplementation(composeBom)
-
+    implementation 'androidx.compose.runtime:runtime-livedata'
     // Material Design 3
     implementation 'androidx.compose.material3:material3'
-
     // Android Studio Preview support
     implementation 'androidx.compose.ui:ui-tooling-preview'
     debugImplementation 'androidx.compose.ui:ui-tooling'
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
+    debugImplementation 'androidx.compose.ui:ui-test-manifest'
 
     // ComposeとNavigation
     implementation "androidx.navigation:navigation-compose:$navigation_version"
 
-    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
-    debugImplementation 'androidx.compose.ui:ui-test-manifest'
     implementation 'androidx.activity:activity-compose:1.7.2'
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-runtime-compose:$lifecycle_version"
-    implementation 'androidx.compose.runtime:runtime-livedata'
+
 
 }
