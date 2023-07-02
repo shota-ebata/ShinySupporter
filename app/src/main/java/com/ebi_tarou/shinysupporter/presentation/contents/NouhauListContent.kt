@@ -12,14 +12,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ebi_tarou.shinysupporter.domain.model.AtamaNouhau
+import com.ebi_tarou.shinysupporter.presentation.ShinySupporterTheme
 import com.ebi_tarou.shinysupporter.presentation.components.NouhauListItem
-import com.ebi_tarou.shinysupporter.presentation.viewmodel.MainUIState
+import com.ebi_tarou.shinysupporter.presentation.viewmodel.NouhauListUIState
 
 @Composable
 fun NouhauListContent(
-    uiState: MainUIState,
     modifier: Modifier = Modifier,
-    navigateToDetail: (nouhauId: Long, ) -> Unit,
+    navigateToDetail: (nouhauId: Long) -> Unit,
+    uiState: NouhauListUIState,
 ) {
     // Contentの上にScreenを作成した場合、引数からもらうようにしたほうがよいか？
     val lazyListState: LazyListState = rememberLazyListState()
@@ -27,7 +28,7 @@ fun NouhauListContent(
     LazyColumn(
         modifier = modifier,
         state = lazyListState,
-        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 8.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         items(
@@ -63,16 +64,16 @@ fun NouhauListContent(
 )
 @Composable
 fun NouhauListContentPreview() {
-    NouhauListContent(
-        uiState = MainUIState(
-            nouhauList = listOf(
-                dummyNouhau()
-            )
-        ),
-        navigateToDetail = {
-
-        }
-    )
+    ShinySupporterTheme {
+        NouhauListContent(
+            uiState = NouhauListUIState(
+                nouhauList = listOf(
+                    dummyNouhau()
+                )
+            ),
+            navigateToDetail = {}
+        )
+    }
 }
 
 private fun dummyNouhau() = AtamaNouhau(
