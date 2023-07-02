@@ -2,18 +2,20 @@ package com.ebi_tarou.shinysupporter.presentation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.compose.NavHost
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.ebi_tarou.shinysupporter.presentation.contents.NouhauDetailContent
-import com.ebi_tarou.shinysupporter.presentation.contents.NouhauListContent
+import androidx.navigation.compose.rememberNavController
 import com.ebi_tarou.shinysupporter.presentation.navigation.AppRoute
+import com.ebi_tarou.shinysupporter.presentation.navigation.NouhauDetailDestination
+import com.ebi_tarou.shinysupporter.presentation.page.NouhauDetailPage
+import com.ebi_tarou.shinysupporter.presentation.page.NouhauListPage
 
 @Composable
 fun AppNavHost(
-    navController: NavHostController,
     modifier: Modifier = Modifier,
-    navigateToDetail: (nouhauId: Long) -> Unit,
+    navController: NavHostController = rememberNavController(),
+    navigateToDetail: (NouhauDetailDestination) -> Unit,
 ) {
     NavHost(
         modifier = modifier,
@@ -21,13 +23,12 @@ fun AppNavHost(
         startDestination = AppRoute.NOUHAU_LIST,
     ) {
         composable(AppRoute.NOUHAU_LIST) {
-            NouhauListContent(
+            NouhauListPage(
                 navigateToDetail = navigateToDetail
             )
         }
         composable(AppRoute.NOUHAU_DETAIL) {
-            NouhauDetailContent()
+            NouhauDetailPage()
         }
     }
-
 }

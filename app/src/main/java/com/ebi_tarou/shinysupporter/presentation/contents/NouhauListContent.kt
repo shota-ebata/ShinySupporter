@@ -14,12 +14,13 @@ import androidx.compose.ui.unit.dp
 import com.ebi_tarou.shinysupporter.domain.model.AtamaNouhau
 import com.ebi_tarou.shinysupporter.presentation.ShinySupporterTheme
 import com.ebi_tarou.shinysupporter.presentation.components.NouhauListItem
+import com.ebi_tarou.shinysupporter.presentation.navigation.NouhauDetailDestination
 import com.ebi_tarou.shinysupporter.presentation.viewmodel.NouhauListUIState
 
 @Composable
 fun NouhauListContent(
     modifier: Modifier = Modifier,
-    navigateToDetail: (nouhauId: Long) -> Unit,
+    navigateToDetail: (NouhauDetailDestination) -> Unit,
     uiState: NouhauListUIState,
 ) {
     // Contentの上にScreenを作成した場合、引数からもらうようにしたほうがよいか？
@@ -41,7 +42,9 @@ fun NouhauListContent(
                 modifier = modifier,
                 nouhau = nouhau,
                 onClickCard = { nouhauId ->
-                    navigateToDetail(nouhauId)
+                    navigateToDetail(
+                        NouhauDetailDestination(nouhauId)
+                    )
                 }
             )
         }

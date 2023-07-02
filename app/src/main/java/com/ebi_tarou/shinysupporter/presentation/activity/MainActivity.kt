@@ -4,11 +4,11 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.runtime.getValue
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.compose.runtime.remember
+import androidx.navigation.compose.rememberNavController
+import com.ebi_tarou.shinysupporter.presentation.AppNavHost
 import com.ebi_tarou.shinysupporter.presentation.ShinySupporterTheme
-import com.ebi_tarou.shinysupporter.presentation.contents.NouhauListContent
-import com.ebi_tarou.shinysupporter.presentation.viewmodel.MainUIState
+import com.ebi_tarou.shinysupporter.presentation.navigation.AppNavigationActions
 import com.ebi_tarou.shinysupporter.presentation.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,10 +23,15 @@ class MainActivity : AppCompatActivity() {
 
         setContent {
             ShinySupporterTheme {
-                val uiState: MainUIState by viewModel.uiState.collectAsStateWithLifecycle()
-                NouhauListContent(
-                    uiState = uiState,
-                    navigateToDetail = {}
+                val navController = rememberNavController()
+                val navigationActions = remember(navController) {
+                    AppNavigationActions(navController)
+                }
+                AppNavHost(
+                    navController = navController,
+                    navigateToDetail = { destination ->
+                        navigationActions.navigateTo(destination)
+                    },
                 )
             }
         }
