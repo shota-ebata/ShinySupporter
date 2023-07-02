@@ -16,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ebi_tarou.shinysupporter.domain.model.AtamaNouhau
 import com.ebi_tarou.shinysupporter.domain.model.Nouhau
+import com.ebi_tarou.shinysupporter.presentation.ShinySupporterTheme
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -67,10 +68,12 @@ fun NouhauListItem(
 @Composable
 fun NouhauListItemPreview() {
     val nouhau = dummyNouhau()
-    NouhauListItem(
-        nouhau = nouhau,
-        onClickCard = {}
-    )
+    ShinySupporterTheme {
+        NouhauListItem(
+            nouhau = nouhau,
+            onClickCard = {}
+        )
+    }
 }
 
 private fun dummyNouhau() = AtamaNouhau(
