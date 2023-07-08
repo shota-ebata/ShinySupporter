@@ -5,7 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ebi_tarou.shinysupporter.domain.model.Nouhau
 import com.ebi_tarou.shinysupporter.domain.repository.NouhauMasterRepository
-import com.ebi_tarou.shinysupporter.presentation.navigation.NouhauDetailDestination.Companion.NOUHAU_ID_KEY
+import com.ebi_tarou.shinysupporter.presentation.navigation.NouhauDetailDestination
+import com.ebi_tarou.shinysupporter.presentation.other.SavedStateProperty
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -25,11 +26,10 @@ constructor(
     private val _uiState = MutableStateFlow(State())
     val uiState: StateFlow<State> = _uiState.asStateFlow()
 
+    private val nouhauId: Long by SavedStateProperty(savedStateHandle, key = NouhauDetailDestination::nouhauId.name)
+
     init {
-        val nouhauId: Long? = savedStateHandle.get<Long>(NOUHAU_ID_KEY)
-        nouhauId?.let {
-            fetch(it)
-        }
+        fetch(nouhauId)
     }
 
     private fun fetch(nouhauId: Long) {
@@ -38,7 +38,7 @@ constructor(
             try {
                 delay(1000L)
                 val nouhau = repository.getNouhau(nouhauId)
-                _uiState.value = State(nouhau = nouhau, isLoading = false)
+                _uiState.value = uiState.value.copy(nouhau = nouhau, isLoading = false)
             } catch (e: Exception) {
                 // TODO: 例外処理
             }
