@@ -69,4 +69,8 @@ constructor(
         return MutableStateFlow(atamaList)
     }
 
+    override suspend fun getNouhau(id: Long): Nouhau? {
+        return atamaList.find { it.id == id }
+    }
+
 }

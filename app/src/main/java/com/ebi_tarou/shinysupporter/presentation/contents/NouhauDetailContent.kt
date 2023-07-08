@@ -9,11 +9,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.ebi_tarou.shinysupporter.domain.model.AtamaNouhau
+import com.ebi_tarou.shinysupporter.domain.model.Nouhau
 import com.ebi_tarou.shinysupporter.presentation.ShinySupporterTheme
 
 @Composable
 fun NouhauDetailContent(
     modifier: Modifier = Modifier,
+    nouhau: Nouhau,
 ) {
     Column(
         modifier = modifier.padding(4.dp)
@@ -21,7 +24,7 @@ fun NouhauDetailContent(
         Text(
             modifier = modifier.padding(4.dp),
             color = MaterialTheme.colorScheme.onBackground,
-            text = "hoge-hoge-"
+            text = nouhau.name
         )
     }
 }
@@ -44,6 +47,13 @@ fun NouhauDetailContent(
 @Composable
 fun NouhauDetailContentPreview() {
     ShinySupporterTheme {
-        NouhauDetailContent()
+        val dummy = AtamaNouhau(
+            id = 0L,
+            name = "dummy",
+            caption = "dummy",
+            minLevel = 1,
+            maxLevel = 5
+        )
+        NouhauDetailContent(nouhau = dummy)
     }
 }

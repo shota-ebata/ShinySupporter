@@ -7,4 +7,5 @@ import kotlinx.coroutines.flow.Flow
 interface NouhauMasterRepository {
     suspend fun getAll(): List<Nouhau>
     suspend fun getAllNouhaus(): Flow<List<Nouhau>>
+    suspend fun getNouhau(id: Long): Nouhau?
 }

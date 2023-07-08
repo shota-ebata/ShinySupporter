@@ -3,11 +3,14 @@ package com.ebi_tarou.shinysupporter.presentation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.ebi_tarou.shinysupporter.presentation.navigation.AppRoute
 import com.ebi_tarou.shinysupporter.presentation.navigation.NouhauDetailDestination
+import com.ebi_tarou.shinysupporter.presentation.navigation.NouhauDetailDestination.Companion.NOUHAU_ID_KEY
 import com.ebi_tarou.shinysupporter.presentation.page.NouhauDetailPage
 import com.ebi_tarou.shinysupporter.presentation.page.NouhauListPage
 
@@ -27,7 +30,12 @@ fun AppNavHost(
                 navigateToDetail = navigateToDetail
             )
         }
-        composable(AppRoute.NOUHAU_DETAIL) {
+        composable(
+            route = AppRoute.NOUHAU_DETAIL,
+            arguments = listOf(
+                navArgument(NOUHAU_ID_KEY) { type = NavType.LongType }
+            )
+        ) {
             NouhauDetailPage()
         }
     }
